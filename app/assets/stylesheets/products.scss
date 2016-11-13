@@ -1,3 +1,26 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+img{
+  // text-align: center;
+  height: 200px;
+  border-radius: 10%;
+  margin-bottom: 20px;
+}
+
+h2{
+  font-weight: normal;
+}
+
+.container{
+  margin-top: 25px;
+}
+
+.center_everything{
+  text-align: center;
+}
+
+.jumbotron{
+  height: auto;
+}
