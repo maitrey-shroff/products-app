@@ -4,7 +4,12 @@ Rails.application.routes.draw do
 
   get "/products", to:"products#index"
 
-  get "/products/:id", to:"products#show"
+  get "/products/:id/edit", to: "products#edit"
+  patch "/products/:id", to: "products#update"
 
+  get "/add_product", to:"products#add_product"
+  post "/save_product", to:"products#save_product"
+
+  get "/products/:id", to:"products#show"
 
 end

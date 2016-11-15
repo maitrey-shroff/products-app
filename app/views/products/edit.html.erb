@@ -1,0 +1,30 @@
+<h1> MY FORM </h1>
+
+
+<%= form_tag "/products/#{@products.id}", method: :patch do %>
+
+  <div>
+    <%= label_tag :product_name %>:
+    <%= text_field_tag :product_name %>
+  </div>
+
+  <div>
+    <%= label_tag :description %>:
+    <%= text_field_tag :description %>
+  </div>
+
+  <div>
+    <%= label_tag :image %>:
+    <%= text_field_tag :image %>
+  </div>
+
+  <div>
+    <%= label_tag :price %>:
+    <%= text_field_tag :price %>
+  </div>
+
+  <div>
+    <%= submit_tag "submit" %>
+  </div>
+
+<% end %>
