@@ -7,22 +7,22 @@
 
   <div>
     <%= label_tag :product_name %>:
-    <%= text_field_tag :product_name %>
+    <%= text_field_tag :product_name, @products.product_name %>
   </div>
 
   <div>
     <%= label_tag :description %>:
-    <%= text_field_tag :description %>
+    <%= text_field_tag :description, @products.description %>
   </div>
 
   <div>
     <%= label_tag :image %>:
-    <%= text_field_tag :image %>
+    <%= text_field_tag :image, @products.image %>
   </div>
 
   <div>
     <%= label_tag :price %>:
-    <%= text_field_tag :price %>
+    <%= text_field_tag :price, @products.price %>
   </div>
 
   <div>
