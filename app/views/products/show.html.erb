@@ -9,6 +9,8 @@
           <p><%= @product.description %></p>
           <img src= <%= @product.image %>>
           <p><a class="btn btn-primary btn-md" href="#" role="button"><%= number_to_currency(@product.price) %></a></p>
+          <p><a class="btn btn-primary btn-md" href= "/products/<%= @product.id %>/edit" role="button">Edit Product</a></p>
+          <%= button_to "Delete Item", "/products/#{@product.id}/", method: :delete %>
         </div>
       </div> <!-- jtron -->
     </div> <!-- col -->

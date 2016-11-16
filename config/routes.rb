@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "/add_product", to:"products#add_product"
   post "/save_product", to:"products#save_product"
 
+  delete "/products/:id/", to:"products#destroy"
+
   get "/products/:id", to:"products#show"
 
 end
