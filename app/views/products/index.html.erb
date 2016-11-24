@@ -1,5 +1,33 @@
 <div class="container">
 
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Sort by:
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li><a href="/products?sort=price_low">Price: low to high</a></li>
+      <li><a href="/products?sort=price_high">Price: high to low</a></li>
+      <li><a href="/products?sort=name_low">Product name: low to high</a></li>
+      <li><a href="/products?sort=name_high">Product name: high to low</a></li>
+    </ul>
+  </div>
+
+  <h1> Search for a product</h1>
+
+    <%= form_tag '/search', method: :post do %>
+
+      <div>
+        <%= label_tag :search_term %>:
+        <%= text_field_tag :search_term %>
+      </div>
+
+      <div>
+        <%= submit_tag "submit" %>
+      </div>
+
+  <% end %>
+
   <div class="row">
 
     <% @products.each do |product| %>
@@ -9,7 +37,7 @@
         <div class="center_everything">
           <h2><%= product.product_name %></h2>
           <p><%= product.description %></p>
-          <img src= <%= product.image %>>
+          <img src= <%= product.images[0].image_1 %>>
           <p><a class="btn btn-primary btn-md" href="/products/<%= product.id %>" role="button"><%= number_to_currency(product.price) %></a></p>
         </div>
       </div> <!-- jtron -->

@@ -1,8 +1,7 @@
 class Product < ApplicationRecord
 
-  def pretty_time
-    return created_at.strftime("%A, %d %b")
-  end
+  belongs_to :supplier
+  has_many :images
 
 
 end
