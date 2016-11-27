@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def home
     @products = Product.all
   end
@@ -28,16 +30,19 @@ class ProductsController < ApplicationController
     else
       @product = Product.find_by(id: params[:id])
     end
-    # @supplier = Supplier.find_by(id: @product.supplier_id)
   end
 
   def save_product
-    @product = Product.new({product_name: params[:product_name], description: params[:description], image: params[:image], price: params[:price]})
-    @product.save
-
-    flash[:success] = "Product saved!"
-
-    redirect_to "/products"
+    @product = Product.new({product_name: params[:product_name], description: params[:description], price: params[:price], supplier_id: 1, user_id: current_user.id})
+    if @product.save
+      @image = Image.new({image_1: params[:image], product_id: @product.id})
+      @image.save
+      flash[:success] = "Product saved!"
+      redirect_to "/products"
+    else
+      flash[:warning] = "Error saving"
+      redirect_to "/add_product"
+    end
   end
 
   def edit
