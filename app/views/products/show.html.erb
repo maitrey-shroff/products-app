@@ -14,6 +14,9 @@
           <p><a class="btn btn-primary btn-md" href="#" role="button"><%= number_to_currency(@product.price) %></a></p>
           <p><a class="btn btn-primary btn-md" href= "/products/<%= @product.id %>/edit" role="button">Edit Product</a></p>
           <%= button_to "Delete Item", "/products/#{@product.id}/", method: :delete %>
+          <%= label_tag :quantity %>:
+          <%= text_field_tag :quantity %>
+          <p><a class="btn btn-primary btn-md" href="#" role="button"><%= "Buy Now!" %></a></p>
         </div>
       </div> <!-- jtron -->
     </div> <!-- col -->

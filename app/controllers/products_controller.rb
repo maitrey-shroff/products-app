@@ -51,7 +51,13 @@ class ProductsController < ApplicationController
 
   def update
     product = Product.find_by(id: params[:id])
-    product.assign_attributes({product_name: params[:product_name], description: params[:description], image: params[:image], price: params[:price]})
+    product.assign_attributes({
+      product_name: params[:product_name], 
+      description: params[:description], 
+      image: params[:image], 
+      price: params[:price],
+      # supplier_id: params[:supplier_id], 
+      user_id: current_user.id})
     product.save
 
     flash[:info] = "Product updated!"
