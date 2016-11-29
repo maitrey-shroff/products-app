@@ -14,9 +14,12 @@
           <p><a class="btn btn-primary btn-md" href="#" role="button"><%= number_to_currency(@product.price) %></a></p>
           <p><a class="btn btn-primary btn-md" href= "/products/<%= @product.id %>/edit" role="button">Edit Product</a></p>
           <%= button_to "Delete Item", "/products/#{@product.id}/", method: :delete %>
-          <%= label_tag :quantity %>:
-          <%= text_field_tag :quantity %>
-          <p><a class="btn btn-primary btn-md" href="#" role="button"><%= "Buy Now!" %></a></p>
+          <%= form_tag '/orders', method: :post do  %>
+            <%= label_tag :quantity %>
+            <%= text_field_tag :quantity, nil, :class => 'form-control', placeholder:"Enter quantity" %>
+            <%= hidden_field_tag :product_id, @product.id %>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          <% end %>
         </div>
       </div> <!-- jtron -->
     </div> <!-- col -->
