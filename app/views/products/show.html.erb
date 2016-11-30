@@ -11,6 +11,9 @@
           <% @product.images.each do |image| %>
             <img src= <%= image.image_1 %>>
           <% end %>
+          <% @product.categories.each do |category| %>
+            <p><%= category.category_name %></p>
+          <% end %>
           <p><a class="btn btn-primary btn-md" href="#" role="button"><%= number_to_currency(@product.price) %></a></p>
           <p><a class="btn btn-primary btn-md" href= "/products/<%= @product.id %>/edit" role="button">Edit Product</a></p>
           <%= button_to "Delete Item", "/products/#{@product.id}/", method: :delete %>

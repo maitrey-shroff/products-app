@@ -7,19 +7,26 @@ class ProductsController < ApplicationController
   end
 
   def index
-    sort_order = params[:sort]
-    if sort_order == "price_high"
-      @products = Product.all.order(price: :desc)
-    elsif sort_order == "price_low"
-      @products = Product.all.order(price: :asc)
-    elsif sort_order == "name_low"
-      @products = Product.all.order(product_name: :asc)
-    elsif sort_order == "name_high"
-      @products = Product.all.order(product_name: :desc)
-    elsif sort_order == "discount"
-      @products = Product.where("price < ?", 1000)
+
+    if params[:category_name]
+      category = Category.find_by(category_name: params[:category_name])
+      @products = category.products
     else
       @products = Product.all
+    end
+
+
+    sort_order = params[:sort]
+    if sort_order == "price_high"
+      @products = @products.order(price: :desc)
+    elsif sort_order == "price_low"
+      @products = @products.order(price: :asc)
+    elsif sort_order == "name_low"
+      @products = @products.order(product_name: :asc)
+    elsif sort_order == "name_high"
+      @products = @products.order(product_name: :desc)
+    elsif sort_order == "discount"
+      @products = @products.where("price < ?", 1000)
     end
   end
 

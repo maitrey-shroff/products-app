@@ -13,6 +13,19 @@
     </ul>
   </div>
 
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Sort by:
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li><a href="/products?category_name=Bikes">Bikes</a></li>
+      <li><a href="/products?sort=price_high">Price: high to low</a></li>
+      <li><a href="/products?sort=name_low">Product name: low to high</a></li>
+      <li><a href="/products?sort=name_high">Product name: high to low</a></li>
+    </ul>
+  </div>
+
   <h1> Search for a product</h1>
 
     <%= form_tag '/search', method: :post do %>
