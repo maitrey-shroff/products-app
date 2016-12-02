@@ -23,9 +23,11 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  get "/orders/new" => 'orders#new'
-  post "/orders" => 'orders#create'
+  post "/carted_products" => 'carted_products#create'
 
-  get "/orders/:id", to:"orders#show"
+  get "/orders/show", to:"orders#show"
+  post "/orders/create", to:"orders#create"
+
+  get "/carted_products", to:"carted_products#checkout"
 
 end
