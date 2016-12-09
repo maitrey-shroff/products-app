@@ -39,16 +39,19 @@ class ProductsController < ApplicationController
     end
   end
 
-  def save_product
-    @product = Product.new({product_name: params[:product_name], description: params[:description], price: params[:price], supplier_id: 1, user_id: current_user.id})
+  def new
+    @product = Product.new
+  end
+
+  def create
+    @product = Product.new({product_name: params[:product_name], description: params[:description], price: params[:price], supplier_id: 1})
     if @product.save
       @image = Image.new({image_1: params[:image], product_id: @product.id})
       @image.save
       flash[:success] = "Product saved!"
       redirect_to "/products"
     else
-      flash[:warning] = "Error saving"
-      redirect_to "/add_product"
+      render :new
     end
   end
 

@@ -1,3 +1,5 @@
-<%= @carted_products.all %>
+<%= @carted_products.each do |product| %>
+  <%= product.product_id %>
+<% end %>
 
 <%= button_to "purchase", "/orders/create" %>

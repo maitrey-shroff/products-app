@@ -4,7 +4,7 @@ class CartedProductsController < ApplicationController
     @carted_product = CartedProduct.new({user_id: current_user.id, product_id: params[:product_id], quantity: params[:quantity], status: "carted"})
     @carted_product.save
 
-    redirect_to "/carted_products"
+    redirect_to "/cart"
 
     flash[:success] = "The product was added to the cart"
 

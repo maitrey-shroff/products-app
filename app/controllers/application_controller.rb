@@ -10,4 +10,14 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
 
+  def admin_user
+    if @current_user.admin == true
+      return true
+    else
+      flash[:danger] = "You aren't an admin user"
+      return false
+    end
+  end
+  helper_method :admin_user
+
 end

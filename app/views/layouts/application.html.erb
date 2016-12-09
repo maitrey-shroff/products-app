@@ -28,8 +28,9 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/products?sort=discount">Clearance Products</a></li>
           <li><a href="/products/random">I'm Feeling Lucky</a></li>
-          <% if current_user %>
-            <li><a href="/add_product">Create a new product</a></li>
+          <li><a href="/cart">Shopping Cart</a></li>
+          <% if admin_user %>
+            <li><a href="/products/new">Create a new product</a></li>
             <li><a href="/logout">Logout</a></li>
           <% else %>
             <li><a href="/signup">Sign up!</a></li>

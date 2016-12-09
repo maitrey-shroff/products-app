@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   get "/products/:id/edit", to: "products#edit"
   patch "/products/:id", to: "products#update"
 
-  get "/add_product", to:"products#add_product"
-  post "/save_product", to:"products#save_product"
+  get "/products/new", to:"products#new"
+  post "/products/create", to:"products#create"
 
   delete "/products/:id/", to:"products#destroy"
 
@@ -28,6 +28,6 @@ Rails.application.routes.draw do
   get "/orders/show", to:"orders#show"
   post "/orders/create", to:"orders#create"
 
-  get "/carted_products", to:"carted_products#checkout"
+  get "/cart", to:"carted_products#checkout"
 
 end

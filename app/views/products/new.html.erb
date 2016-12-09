@@ -1,0 +1,37 @@
+<div class="container">
+
+<h1> MY FORM </h1>
+
+<% if @product.errors.any? %>
+  <% flash[:danger] = @product.errors.full_messages.join(", ") %>
+<% end %>
+
+<%= form_tag '/products/create', method: :post do %>
+
+  <div>
+    <%= label_tag :product_name %>:
+    <%= text_field_tag :product_name, @product.product_name %>
+  </div>
+
+  <div>
+    <%= label_tag :description %>:
+    <%= text_field_tag :description, @product.description %>
+  </div>
+
+  <div>
+    <%= label_tag :image %>:
+    <%= text_field_tag :image, @product.image %>
+  </div>
+
+  <div>
+    <%= label_tag :price %>:
+    <%= text_field_tag :price, @product.price %>
+  </div>
+
+  <div>
+    <%= submit_tag "submit" %>
+  </div>
+
+<% end %>
+
+</div>
